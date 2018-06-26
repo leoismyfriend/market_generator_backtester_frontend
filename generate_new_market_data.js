@@ -39,7 +39,6 @@ function createTrend(probability, prices_array) {
 
     //create trend UP
     if (init_price <= target_price) {
-
         while (current_price < target_price) {
             const random_num = Math.random()
             if (random_num <= probability) {
@@ -91,6 +90,7 @@ function createEventTime(num) {
     var i = 0
     var j = 0
     var elapsed_time = []
+    //6/25 changed to '<=' so last index isn't 'undefined'
     while (i <= num) {
         var index = Math.floor(Math.random() * normal_times.length)
         //console.log('index: ', index)
