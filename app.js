@@ -4,7 +4,7 @@
         const probabilityField = $('#probability')[0];
         const pricesSetField = $('#prices-set')[0];
         let probability = probabilityField.value;
-        //6/25 map to Number instead of String
+        //6/25 map to Number instead of String as +/-1 isn't a concatenation
         let pricesSet = pricesSetField.value.split(',').map(Number);
         if (isNaN(+probability) || probability < 0.5 || probability > 1.0) {
             return alert(
