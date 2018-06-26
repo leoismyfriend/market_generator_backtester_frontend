@@ -1,5 +1,3 @@
-// var market_data = create_d3_data(0.54, [5, 15, -50, 250])
-//console.log('market_data: ', market_data)
 
 async function create_d3_data(probability, price_set) {
     //1. create a market data (price, time) series
@@ -15,12 +13,11 @@ async function create_d3_data(probability, price_set) {
     const prices = await create_random_price_data(probability, price_set)
     const times = await createEventTime(prices.length)
     const market_data = await combinePriceTime(prices, times)
-    console.log('market_data: ', market_data)
-    //console.log('button clicked create_d3_data')
+    console.log('market_data[0]: ', market_data[0])
     return market_data
 }
 
-///////////////////////////create_random_price_data.js
+//create_random_price_data.js
 function create_random_price_data(probability, prices_array) {
     let parsed_prices = parse_price_array(prices_array)
     let price_data = []
@@ -30,12 +27,11 @@ function create_random_price_data(probability, prices_array) {
         price_data = price_data.concat(partial_prices)
         partial_prices = []
     }
-    //console.log('price_data: ', price_data)
+    console.log('price_data[0]: ', price_data[0])
     return price_data
 }
 
 function createTrend(probability, prices_array) {
-    //prices_array = [init_price, target_price]
     let trend_prices = []
     let init_price = prices_array[0]
     let target_price = prices_array[1]
@@ -43,6 +39,7 @@ function createTrend(probability, prices_array) {
 
     //create trend UP
     if (init_price <= target_price) {
+
         while (current_price < target_price) {
             const random_num = Math.random()
             if (random_num <= probability) {
@@ -85,7 +82,6 @@ function parse_price_array(price_arr) {
     }
     return create_trend_array
 }
-/////////////////////////////////////////////////////////////
 //time_elapsed_generator.js
 var num_fast_run = 11
 var normal_times = [0.1, 1, 3, 4, 5, 3, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -95,7 +91,7 @@ function createEventTime(num) {
     var i = 0
     var j = 0
     var elapsed_time = []
-    while (i < num) {
+    while (i <= num) {
         var index = Math.floor(Math.random() * normal_times.length)
         //console.log('index: ', index)
         //console.log('normal_times[index]:', normal_times[index])
@@ -126,13 +122,10 @@ function accumulator(array) {
     var sum_array = []
     for (var i = 0; i < array.length - 1; i++) {
         current_sum = Math.round(array[i] + current_sum, 3)
-        //console.log('array[i]: ', array[i])
-        //console.log('current_sum: ', current_sum)
         sum_array.push(current_sum)
     }
     return sum_array
 }
-////////////////////////////////////////////////////
 //combine_price_time.js
 function combinePriceTime(price_array, time_array) {
     let price_time = {}
@@ -145,4 +138,3 @@ function combinePriceTime(price_array, time_array) {
     }
     return market_data
 }
-///////////////////////////////////////////////////
