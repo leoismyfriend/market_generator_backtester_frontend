@@ -45,11 +45,13 @@
     <div>
         <H3>Long Backtester Server/Initialize 1st Trade</H3>
         Size:
-        <input type="number" name="probability">
-        <br> Market Speed:
-        <input type="number" name="probability">
-        <br> Volatility:
-        <input type="number" name="probability">
+        <input type="number" name="size">
+        <br> Market Speed (0 - 8):
+        <input type="number" name="market_speed">
+        <br> Volatility (low, med, high):
+        <input type="text" name="volatility">
+        <br> Protect Buffer Runway (# of ticks):
+        <input type="number" name="protect_buffer_runway">
         <br>
         <br>
         <button value="backtester_send">POST To Backtest Server (Model 1)</button>
