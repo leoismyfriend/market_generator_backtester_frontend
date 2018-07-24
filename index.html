@@ -43,25 +43,26 @@
     </div>
 
     <div>
-        <H3>Long Backtester Server/Initialize 1st Trade</H3>
+        <H3>Initialize 1st Trade</H3>
         Size:
         <input type="number" name="size">
+        <br> Protect_Buffer_Runway (# of ticks):
+        <input type="number" name="protect_buffer_runway">
+        <br>
         <br> Market Speed (0 - 8):
         <input type="number" name="market_speed">
         <br> Volatility (low, med, high):
         <input type="text" name="volatility">
-        <br> Protect Buffer Runway (# of ticks):
-        <input type="number" name="protect_buffer_runway">
         <br>
-        <br>
+        <H3>Long Backtester Server</H3>
         <button value="backtester_send">POST To Backtest Server (Model 1)</button>
         <button value="backtester_send">POST To Backtest Server (Model 2)</button>
-
-        <p>Filled Trades Table</p>
+        <br>
         <p>D3 Line Chart (Sum_Pnl vs Price) Here</p>
         <p>D3 Line Chart (Sum_Pnl vs 'Time') Here</p>
     </div>
     <H3>Backtester Results</H3>
+    <p>Filled Trades Table</p>
     <p>Performance Comparison Table Here</p>
     <form>
         Name:
